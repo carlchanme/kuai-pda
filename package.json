@@ -3,18 +3,42 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.1.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@fortawesome/react-native-fontawesome": "^0.2.6",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "bootstrap": "^4.6.0",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
+    "react-card-flip": "^1.1.1",
     "react-dom": "^17.0.2",
+    "react-markdown": "^6.0.2",
+    "react-player": "^2.9.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-scroll-to-top": "^1.0.5",
+    "react-syntax-highlighter": "^15.4.3",
+    "reactjs-popup": "^2.0.4",
+    "rehype-katex": "^5.0.0",
+    "rehype-raw": "^5.1.0",
+    "rehype-react": "^6.2.0",
+    "remark-collapse": "^0.1.2",
+    "remark-gfm": "^1.0.0",
+    "remark-math": "^4.0.0",
+    "remark-parse": "^9.0.0",
+    "remark-react": "^8.0.0",
+    "remark-rehype": "^8.1.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -34,5 +58,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "node-sass": "^6.0.0",
+    "postcss": "^7.0.36",
+    "sass-loader": "^10.2.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.2"
   }
 }
