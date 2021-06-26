@@ -1,10 +1,17 @@
 import React from 'react';
+import criteriaValidator from "../criteriaValidator";
 
 const CriteriaQuality = (meta) => {
+    const {pages} = meta
     const describeCondition = () => {
         // 1.	The patient decision aid describes the health condition or problem (treatment, procedure, or investigation)
         // for which the index decision is required
-        return true
+
+        const regex = "regex"
+        return pages.some((page) => {
+            // for .some, when true is returned then it will break;
+            return criteriaValidator(page, regex)
+        })
     }
     const describeDecision = () => {
         console.log({path: 'describe decision', meta})
