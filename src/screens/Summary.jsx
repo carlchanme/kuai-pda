@@ -1,12 +1,11 @@
 import React from 'react'
 import {Table} from "react-bootstrap";
 import {useSelector} from "react-redux";
-import {getIPDAS} from "../store/ipdas";
 import {getMeta} from "../store/meta";
+import IpdasStandard from "../engine/ipdasStandard";
 
 const Summary = () => {
-    const standards = {qualifyingCriteria: {}, certificationCriteria: {}, qualityCriteria: {}}
-    const ipdas = useSelector(getIPDAS)
+    const {qualifyingCriteria, certificationCriteria, qualityCriteria} = IpdasStandard()
     const meta = useSelector(getMeta)
 
     const handleClick = (e) => {
@@ -14,20 +13,112 @@ const Summary = () => {
         hiddenElement.className.indexOf("collapse show") > -1 ? hiddenElement.classList.remove("show") : hiddenElement.classList.add("show");
     }
     const checked = (isDone) => isDone ? "✅" : "❎"
-    const {qualifyingCriteria, certificationCriteria, qualityCriteria} = standards
+
+    const {
+        describeCondition: q1,
+        describeDecision: q2,
+        describeOptions: q3,
+        describeOptionsPositive: q4,
+        describeOptionsNegative: q5,
+        consequenceOptions: q6,
+    } = qualifyingCriteria;
 
     const qualifyingList = [
-        `${checked(qualifyingCriteria.describeCondition)} The decision aid describes the condition (health or other) related to the decision.`,
-        `${checked(qualifyingCriteria.describeDecision)} The patient decision aid explicitly states the decision that needs to be considered.`,
-        `${checked(ipdas.describeOptions)} The patient decision aid describes the options available for the index decision.`,
-        `${checked(qualifyingCriteria.describeOptionsPositive)} The patient decision aid describes the positive features (benefits or advantages) of each option.`,
-        `${checked(qualifyingCriteria.describeOptionsNegative)} The patient decision aid describes the negative features (harms, side effects, or disadvantages) of each option.`,
-        `${checked(qualifyingCriteria.consequenceOptions)} The patient decision aid describes what it is like to experience the consequences of the options .`,
+        `${checked(q1)} The decision aid describes the condition (health or other) related to the decision.`,
+        `${checked(q2)} The patient decision aid explicitly states the decision that needs to be considered.`,
+        `${checked(q3)} The patient decision aid describes the options available for the index decision.`,
+        `${checked(q4)} The patient decision aid describes the positive features (benefits or advantages) of each option.`,
+        `${checked(q5)} The patient decision aid describes the negative features (harms, side effects, or disadvantages) of each option.`,
+        `${checked(q6)} The patient decision aid describes what it is like to experience the consequences of the options .`,
     ]
 
-    const certificationList = []
+    const {
+        showsNegativePositiveOption : c1,
+        provideCitationOfEvidence : c2,
+        showPublicationDate : c3,
+        showUpdatePolicy : c4,
+        showLevelOfUncertainty : c5,
+        showFundingSource : c6,
+        goalOfTest : c7,
+        describeNextStepDetected : c8,
+        describeNextStepNotDetected : c9,
+        describeConsequenceIfNoScreening : c10,
+    } = certificationCriteria
 
-    const qualityList = []
+    const certificationList = [
+        `${checked(c1)}`,
+        `${checked(c2)}`,
+        `${checked(c3)}`,
+        `${checked(c4)}`,
+        `${checked(c5)}`,
+        `${checked(c6)}`,
+        `${checked(c7)}`,
+        `${checked(c8)}`,
+        `${checked(c9)}`,
+        `${checked(c10)}`,
+    ]
+
+    const {
+        naturalCourseOfCondition : b1,
+        canComparePositiveNegativeOption : b2,
+        OutcomeProbabilitiesInfo : b3,
+        specifiesGroupProbabilitiesApplied : b4,
+        specifiesEventRatesOfOutcome : b5,
+        compareOutcomeProbabilities : b6,
+        compareProbabilitiesWithSameDenominator : b7,
+        multiviewForProbabilities : b8,
+        patientReflectOnFeature : b9,
+        stepByStepGuidance : b10,
+        toolForDiscussingOption : b11,
+        clientPatientAssessDevelopment : b12,
+        healthProfAssessDevelopment : b13,
+        secondReviewByClientPatient : b14,
+        secondReviewByProfessionals : b15,
+        testedByPatients : b16,
+        testedByPatientsPractitioners : b17,
+        describeHowEvidenceSelected : b18,
+        describeQualityOfEvidence : b19,
+        containsAuthorDeveloperCredentials : b20,
+        reportsReadabilityLevels : b21,
+        evidenceToProveMatchOfPreference : b22,
+        evidenceImproveKnowledge : b23,
+        truePositiveTestResultInfo : b24,
+        trueNegativeTestResultInfo : b25,
+        falsePositiveTestResultInfo : b26,
+        falseNegativeTestResultInfo : b27,
+        chancesOfDetectionWithAndWithoutTest : b28,
+    } = qualityCriteria
+
+    const qualityList = [
+        `${checked(b1)}`,
+        `${checked(b2)}`,
+        `${checked(b3)}`,
+        `${checked(b4)}`,
+        `${checked(b5)}`,
+        `${checked(b6)}`,
+        `${checked(b7)}`,
+        `${checked(b8)}`,
+        `${checked(b9)}`,
+        `${checked(b10)}`,
+        `${checked(b11)}`,
+        `${checked(b12)}`,
+        `${checked(b13)}`,
+        `${checked(b14)}`,
+        `${checked(b15)}`,
+        `${checked(b16)}`,
+        `${checked(b17)}`,
+        `${checked(b18)}`,
+        `${checked(b19)}`,
+        `${checked(b20)}`,
+        `${checked(b21)}`,
+        `${checked(b22)}`,
+        `${checked(b23)}`,
+        `${checked(b24)}`,
+        `${checked(b25)}`,
+        `${checked(b26)}`,
+        `${checked(b27)}`,
+        `${checked(b28)}`,
+    ]
     return (
         <>
             <h1>Decision Aid Summary</h1>
@@ -101,7 +192,7 @@ const Summary = () => {
                 </tr>
                 <tr className="collapse">
                     <td colSpan="2">
-                        {qualifyingList.map(string => <p>{string}</p>)}
+                        {qualifyingList.map((string, index) => <p key={`ql${index}`}>{string}</p>)}
                     </td>
                 </tr>
                 <tr onClick={handleClick}>

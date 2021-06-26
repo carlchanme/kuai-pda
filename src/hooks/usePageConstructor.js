@@ -16,7 +16,7 @@ function UsePageConstructor() {
             const formattedPages = formatPage(contents)
             const formattedMeta = formatMeta(meta)
             setPages(formattedPages)
-            setMetadata(formattedMeta)
+            setMetadata(formattedMeta);
             dispatch(metaStored(formattedMeta))
             dispatch(pagesStored({pages: formattedPages}))
         } catch (err) {

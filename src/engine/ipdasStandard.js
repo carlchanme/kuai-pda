@@ -1,105 +1,71 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import criteriaQualify from "./criterias/criteriaQualify";
-import {
-    showsNegativePositiveOption,
-    provideCitationOfEvidence,
-    showPublicationDate,
-    showUpdatePolicy,
-    showLevelOfUncertainty,
-    showFundingSource,
-    goalOfTest,
-    describeNextStepDetected,
-    describeNextStepNotDetected,
-    describeConsequenceIfNoScreening,
-} from "./criterias/criteriaCertification";
-import {
-    naturalCourseOfCondition,
-    canComparePositiveNegativeOption,
-    OutcomeProbabilitiesInfo,
-    specifiesGroupProbabilitiesApplied,
-    specifiesEventRatesOfOutcome,
-    compareOutcomeProbabilities,
-    compareProbabilitiesWithSameDenominator,
-    multiviewForProbabilities,
-    patientReflectOnFeature,
-    stepByStepGuidance,
-    toolForDiscussingOption,
-    clientPatientAssessDevelopment,
-    healthProfAssessDevelopment,
-    secondReviewByClientPatient,
-    secondReviewByProfessionals,
-    testedByPatients,
-    testedByPatientsPractitioners,
-    describeHowEvidenceSelected,
-    describeQualityOfEvidence,
-    containsAuthorDeveloperCredentials,
-    reportsReadabilityLevels,
-    evidenceToProveMatchOfPreference,
-    evidenceImproveKnowledge,
-    truePositiveTestResultInfo,
-    trueNegativeTestResultInfo,
-    falsePositiveTestResultInfo,
-    falseNegativeTestResultInfo,
-    chancesOfDetectionWithAndWithoutTest,
-} from "./criterias/criteriaQuality";
+import criteriaCertification from "./criterias/criteriaCertification";
+import criteriaQuality from "./criterias/criteriaQuality";
+import {useSelector} from "react-redux";
+import {getMeta} from "../store/meta";
 
-function IpdasStandard(pages) {
+function IpdasStandard() {
     const [qualifyingCriteria, setQualifyingCriteria] = useState({})
     const [certificationCriteria, setCertificationCriteria] = useState({})
     const [qualityCriteria, setQualityCriteria] = useState({})
-
+    const meta = useSelector(getMeta)
+    const qualify = criteriaQualify(meta)
+    const quality = criteriaQuality(meta)
+    const certification = criteriaCertification(meta)
+    
     useEffect(() => {
         setQualifyingCriteria( {
-            describeCondition: criteriaQualify.describeCondition(pages),
-            describeDecision: criteriaQualify.describeDecision(pages),
-            describeOptions: criteriaQualify.describeOptions(pages),
-            describeOptionsPositive: criteriaQualify.describeOptionsPositive(pages),
-            describeOptionsNegative: criteriaQualify.describeOptionsNegative(pages),
-            consequenceOptions: criteriaQualify.consequenceOptions(pages),
+            describeCondition: qualify.describeCondition(),
+            describeDecision: qualify.describeDecision(),
+            describeOptions: qualify.describeOptions(),
+            describeOptionsPositive: qualify.describeOptionsPositive(),
+            describeOptionsNegative: qualify.describeOptionsNegative(),
+            consequenceOptions: qualify.consequenceOptions(),
         })
         setCertificationCriteria( {
-            showsNegativePositiveOption: showsNegativePositiveOption(pages),
-            provideCitationOfEvidence: provideCitationOfEvidence(pages),
-            showPublicationDate: showPublicationDate(pages),
-            showUpdatePolicy: showUpdatePolicy(pages),
-            showLevelOfUncertainty: showLevelOfUncertainty(pages),
-            showFundingSource: showFundingSource(pages),
-            goalOfTest: goalOfTest(pages),
-            describeNextStepDetected: describeNextStepDetected(pages),
-            describeNextStepNotDetected: describeNextStepNotDetected(pages),
-            describeConsequenceIfNoScreening: describeConsequenceIfNoScreening(pages),
+            showsNegativePositiveOption: certification.showsNegativePositiveOption(),
+            provideCitationOfEvidence: certification.provideCitationOfEvidence(),
+            showPublicationDate: certification.showPublicationDate(),
+            showUpdatePolicy: certification.showUpdatePolicy(),
+            showLevelOfUncertainty: certification.showLevelOfUncertainty(),
+            showFundingSource: certification.showFundingSource(),
+            goalOfTest: certification.goalOfTest(),
+            describeNextStepDetected: certification.describeNextStepDetected(),
+            describeNextStepNotDetected: certification.describeNextStepNotDetected(),
+            describeConsequenceIfNoScreening: certification.describeConsequenceIfNoScreening(),
         })
         setQualityCriteria({
-            naturalCourseOfCondition: naturalCourseOfCondition(pages),
-            canComparePositiveNegativeOption: canComparePositiveNegativeOption(pages),
-            OutcomeProbabilitiesInfo: OutcomeProbabilitiesInfo(pages),
-            specifiesGroupProbabilitiesApplied: specifiesGroupProbabilitiesApplied(pages),
-            specifiesEventRatesOfOutcome: specifiesEventRatesOfOutcome(pages),
-            compareOutcomeProbabilities: compareOutcomeProbabilities(pages),
-            compareProbabilitiesWithSameDenominator: compareProbabilitiesWithSameDenominator(pages),
-            multiviewForProbabilities:multiviewForProbabilities(pages),
-            patientReflectOnFeature:patientReflectOnFeature(pages),
-            stepByStepGuidance:stepByStepGuidance(pages),
-            toolForDiscussingOption:toolForDiscussingOption(pages),
-            clientPatientAssessDevelopment:clientPatientAssessDevelopment(pages),
-            healthProfAssessDevelopment:healthProfAssessDevelopment(pages),
-            secondReviewByClientPatient:secondReviewByClientPatient(pages),
-            secondReviewByProfessionals:secondReviewByProfessionals(pages),
-            testedByPatients:testedByPatients(pages),
-            testedByPatientsPractitioners:testedByPatientsPractitioners(pages),
-            describeHowEvidenceSelected:describeHowEvidenceSelected(pages),
-            describeQualityOfEvidence: describeQualityOfEvidence(pages),
-            containsAuthorDeveloperCredentials:containsAuthorDeveloperCredentials(pages),
-            reportsReadabilityLevels:reportsReadabilityLevels(pages),
-            evidenceToProveMatchOfPreference:evidenceToProveMatchOfPreference(pages),
-            evidenceImproveKnowledge:evidenceImproveKnowledge(pages),
-            truePositiveTestResultInfo:truePositiveTestResultInfo(pages),
-            trueNegativeTestResultInfo:trueNegativeTestResultInfo(pages),
-            falsePositiveTestResultInfo:falsePositiveTestResultInfo(pages),
-            falseNegativeTestResultInfo:falseNegativeTestResultInfo(pages),
-            chancesOfDetectionWithAndWithoutTest:chancesOfDetectionWithAndWithoutTest(pages),
+            naturalCourseOfCondition: quality.naturalCourseOfCondition(),
+            canComparePositiveNegativeOption: quality.canComparePositiveNegativeOption(),
+            OutcomeProbabilitiesInfo: quality.OutcomeProbabilitiesInfo(),
+            specifiesGroupProbabilitiesApplied: quality.specifiesGroupProbabilitiesApplied(),
+            specifiesEventRatesOfOutcome: quality.specifiesEventRatesOfOutcome(),
+            compareOutcomeProbabilities: quality.compareOutcomeProbabilities(),
+            compareProbabilitiesWithSameDenominator: quality.compareProbabilitiesWithSameDenominator(),
+            multiviewForProbabilities: quality.multiviewForProbabilities(),
+            patientReflectOnFeature: quality.patientReflectOnFeature(),
+            stepByStepGuidance: quality.stepByStepGuidance(),
+            toolForDiscussingOption: quality.toolForDiscussingOption(),
+            clientPatientAssessDevelopment: quality.clientPatientAssessDevelopment(),
+            healthProfAssessDevelopment: quality.healthProfAssessDevelopment(),
+            secondReviewByClientPatient: quality.secondReviewByClientPatient(),
+            secondReviewByProfessionals: quality.secondReviewByProfessionals(),
+            testedByPatients: quality.testedByPatients(),
+            testedByPatientsPractitioners: quality.testedByPatientsPractitioners(),
+            describeHowEvidenceSelected: quality.describeHowEvidenceSelected(),
+            describeQualityOfEvidence: quality.describeQualityOfEvidence(),
+            containsAuthorDeveloperCredentials: quality.containsAuthorDeveloperCredentials(),
+            reportsReadabilityLevels: quality.reportsReadabilityLevels(),
+            evidenceToProveMatchOfPreference: quality.evidenceToProveMatchOfPreference(),
+            evidenceImproveKnowledge: quality.evidenceImproveKnowledge(),
+            truePositiveTestResultInfo: quality.truePositiveTestResultInfo(),
+            trueNegativeTestResultInfo: quality.trueNegativeTestResultInfo(),
+            falsePositiveTestResultInfo: quality.falsePositiveTestResultInfo(),
+            falseNegativeTestResultInfo: quality.falseNegativeTestResultInfo(),
+            chancesOfDetectionWithAndWithoutTest: quality.chancesOfDetectionWithAndWithoutTest(),
         })
-    },[])
+    },[meta])
 
     return {qualifyingCriteria, certificationCriteria, qualityCriteria}
 }

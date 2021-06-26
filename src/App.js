@@ -11,11 +11,13 @@ import {Container} from "react-bootstrap";
 import NotFound from "./screens/notFound";
 import Panel from "./screens/panel";
 import UsePageConstructor from "./hooks/usePageConstructor";
+import ipdasStandard from "./engine/ipdasStandard"
 import UsePageNavigator from "./hooks/usePageNavigator";
 import Summary from "./screens/Summary";
 
 function App() {
     const {pages} = UsePageConstructor()
+    const ipdas = ipdasStandard(pages)
     const {progress, previous, next} = UsePageNavigator({pages})
     const divRef = useRef();
 

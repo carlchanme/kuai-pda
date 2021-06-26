@@ -1,19 +1,20 @@
 import React from 'react';
 
-const CriteriaQuality = (data) => {
+const CriteriaQuality = (meta) => {
     const describeCondition = () => {
         // 1.	The patient decision aid describes the health condition or problem (treatment, procedure, or investigation)
         // for which the index decision is required
-        return !!data?.objective
+        return true
     }
     const describeDecision = () => {
+        console.log({path: 'describe decision', meta})
         // 2.	The patient decision aid explicitly states the decision that needs to be considered (index decision). (options / decision)
         return false
     }
 
     const describeOptions = () => {
         // 3.	The patient decision aid describes the options available for the index decision
-        return true
+        return false
     }
     const describeOptionsPositive = () => {
         // 4.	The patient decision aid describes the positive features (benefits or advantages) of each option
