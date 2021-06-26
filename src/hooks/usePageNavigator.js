@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation} from "react-router-dom";
 
-function PageNavigator({pages}) {
+function UsePageNavigator({pages}) {
     const location = useLocation();
     const index = pages?.map((page, index) => `/${index}`).indexOf(location.pathname)
     const [progress, setProgress] = useState(0)
@@ -10,14 +10,14 @@ function PageNavigator({pages}) {
 
     useEffect(() => {
         console.log({path: "useEffect", index, pages})
-        const percentage = index / (pages.length - 1) * 100
+        const percentage = index / (pages?.length - 1) * 100
         setProgress(percentage)
 
         const prevIndex = index > 0 ? index - 1 : null
         const prevPath = (prevIndex !== null) ? `/${prevIndex}` : null
         setPrevious(prevPath)
 
-        const nextIndex = (index < pages.length -1) ? index + 1 : null
+        const nextIndex = (index < pages?.length -1) ? index + 1 : null
         const nextPath = nextIndex ? `/${nextIndex}` : null
         setNext(nextPath)
     }, [index])
@@ -25,4 +25,4 @@ function PageNavigator({pages}) {
     return { progress, previous, next};
 }
 
-export default PageNavigator;
+export default UsePageNavigator;

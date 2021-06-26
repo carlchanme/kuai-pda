@@ -1,12 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {
-    describeCondition,
-    describeDecision,
-    describeOptions,
-    describeOptionsPositive,
-    describeOptionsNegative,
-    consequenceOptions,
-} from "./criterias/criteriaQualify";
+import React, {useContext, useEffect, useState} from 'react';
+import criteriaQualify from "./criterias/criteriaQualify";
 import {
     showsNegativePositiveOption,
     provideCitationOfEvidence,
@@ -50,61 +43,61 @@ import {
     chancesOfDetectionWithAndWithoutTest,
 } from "./criterias/criteriaQuality";
 
-function IpdasStandard(data) {
+function IpdasStandard(pages) {
     const [qualifyingCriteria, setQualifyingCriteria] = useState({})
     const [certificationCriteria, setCertificationCriteria] = useState({})
     const [qualityCriteria, setQualityCriteria] = useState({})
 
     useEffect(() => {
         setQualifyingCriteria( {
-            describeCondition: describeCondition(data),
-            describeDecision: describeDecision(data),
-            describeOptions: describeOptions(data),
-            describeOptionsPositive: describeOptionsPositive(data),
-            describeOptionsNegative: describeOptionsNegative(data),
-            consequenceOptions: consequenceOptions(data),
+            describeCondition: criteriaQualify.describeCondition(pages),
+            describeDecision: criteriaQualify.describeDecision(pages),
+            describeOptions: criteriaQualify.describeOptions(pages),
+            describeOptionsPositive: criteriaQualify.describeOptionsPositive(pages),
+            describeOptionsNegative: criteriaQualify.describeOptionsNegative(pages),
+            consequenceOptions: criteriaQualify.consequenceOptions(pages),
         })
         setCertificationCriteria( {
-            showsNegativePositiveOption: showsNegativePositiveOption(data),
-            provideCitationOfEvidence: provideCitationOfEvidence(data),
-            showPublicationDate: showPublicationDate(data),
-            showUpdatePolicy: showUpdatePolicy(data),
-            showLevelOfUncertainty: showLevelOfUncertainty(data),
-            showFundingSource: showFundingSource(data),
-            goalOfTest: goalOfTest(data),
-            describeNextStepDetected: describeNextStepDetected(data),
-            describeNextStepNotDetected: describeNextStepNotDetected(data),
-            describeConsequenceIfNoScreening: describeConsequenceIfNoScreening(data),
+            showsNegativePositiveOption: showsNegativePositiveOption(pages),
+            provideCitationOfEvidence: provideCitationOfEvidence(pages),
+            showPublicationDate: showPublicationDate(pages),
+            showUpdatePolicy: showUpdatePolicy(pages),
+            showLevelOfUncertainty: showLevelOfUncertainty(pages),
+            showFundingSource: showFundingSource(pages),
+            goalOfTest: goalOfTest(pages),
+            describeNextStepDetected: describeNextStepDetected(pages),
+            describeNextStepNotDetected: describeNextStepNotDetected(pages),
+            describeConsequenceIfNoScreening: describeConsequenceIfNoScreening(pages),
         })
         setQualityCriteria({
-            naturalCourseOfCondition: naturalCourseOfCondition(data),
-            canComparePositiveNegativeOption: canComparePositiveNegativeOption(data),
-            OutcomeProbabilitiesInfo: OutcomeProbabilitiesInfo(data),
-            specifiesGroupProbabilitiesApplied: specifiesGroupProbabilitiesApplied(data),
-            specifiesEventRatesOfOutcome: specifiesEventRatesOfOutcome(data),
-            compareOutcomeProbabilities: compareOutcomeProbabilities(data),
-            compareProbabilitiesWithSameDenominator: compareProbabilitiesWithSameDenominator(data),
-            multiviewForProbabilities:multiviewForProbabilities(data),
-            patientReflectOnFeature:patientReflectOnFeature(data),
-            stepByStepGuidance:stepByStepGuidance(data),
-            toolForDiscussingOption:toolForDiscussingOption(data),
-            clientPatientAssessDevelopment:clientPatientAssessDevelopment(data),
-            healthProfAssessDevelopment:healthProfAssessDevelopment(data),
-            secondReviewByClientPatient:secondReviewByClientPatient(data),
-            secondReviewByProfessionals:secondReviewByProfessionals(data),
-            testedByPatients:testedByPatients(data),
-            testedByPatientsPractitioners:testedByPatientsPractitioners(data),
-            describeHowEvidenceSelected:describeHowEvidenceSelected(data),
-            describeQualityOfEvidence: describeQualityOfEvidence(data),
-            containsAuthorDeveloperCredentials:containsAuthorDeveloperCredentials(data),
-            reportsReadabilityLevels:reportsReadabilityLevels(data),
-            evidenceToProveMatchOfPreference:evidenceToProveMatchOfPreference(data),
-            evidenceImproveKnowledge:evidenceImproveKnowledge(data),
-            truePositiveTestResultInfo:truePositiveTestResultInfo(data),
-            trueNegativeTestResultInfo:trueNegativeTestResultInfo(data),
-            falsePositiveTestResultInfo:falsePositiveTestResultInfo(data),
-            falseNegativeTestResultInfo:falseNegativeTestResultInfo(data),
-            chancesOfDetectionWithAndWithoutTest:chancesOfDetectionWithAndWithoutTest(data),
+            naturalCourseOfCondition: naturalCourseOfCondition(pages),
+            canComparePositiveNegativeOption: canComparePositiveNegativeOption(pages),
+            OutcomeProbabilitiesInfo: OutcomeProbabilitiesInfo(pages),
+            specifiesGroupProbabilitiesApplied: specifiesGroupProbabilitiesApplied(pages),
+            specifiesEventRatesOfOutcome: specifiesEventRatesOfOutcome(pages),
+            compareOutcomeProbabilities: compareOutcomeProbabilities(pages),
+            compareProbabilitiesWithSameDenominator: compareProbabilitiesWithSameDenominator(pages),
+            multiviewForProbabilities:multiviewForProbabilities(pages),
+            patientReflectOnFeature:patientReflectOnFeature(pages),
+            stepByStepGuidance:stepByStepGuidance(pages),
+            toolForDiscussingOption:toolForDiscussingOption(pages),
+            clientPatientAssessDevelopment:clientPatientAssessDevelopment(pages),
+            healthProfAssessDevelopment:healthProfAssessDevelopment(pages),
+            secondReviewByClientPatient:secondReviewByClientPatient(pages),
+            secondReviewByProfessionals:secondReviewByProfessionals(pages),
+            testedByPatients:testedByPatients(pages),
+            testedByPatientsPractitioners:testedByPatientsPractitioners(pages),
+            describeHowEvidenceSelected:describeHowEvidenceSelected(pages),
+            describeQualityOfEvidence: describeQualityOfEvidence(pages),
+            containsAuthorDeveloperCredentials:containsAuthorDeveloperCredentials(pages),
+            reportsReadabilityLevels:reportsReadabilityLevels(pages),
+            evidenceToProveMatchOfPreference:evidenceToProveMatchOfPreference(pages),
+            evidenceImproveKnowledge:evidenceImproveKnowledge(pages),
+            truePositiveTestResultInfo:truePositiveTestResultInfo(pages),
+            trueNegativeTestResultInfo:trueNegativeTestResultInfo(pages),
+            falsePositiveTestResultInfo:falsePositiveTestResultInfo(pages),
+            falseNegativeTestResultInfo:falseNegativeTestResultInfo(pages),
+            chancesOfDetectionWithAndWithoutTest:chancesOfDetectionWithAndWithoutTest(pages),
         })
     },[])
 

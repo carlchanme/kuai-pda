@@ -1,22 +1,28 @@
 import {useCallback, useEffect, useState} from 'react';
 import mdFile from "../panels.md";
 import _ from "lodash"
+import {useDispatch} from "react-redux";
+import {metaStored, pagesStored} from "../store/meta";
 
-function PageConstructor() {
-    const [metadata, setMetadata] = useState({})
-    const [pages, setPages] = useState([])
-
+function UsePageConstructor() {
+    const dispatch = useDispatch()
+    const [pages, setPages] = useState()
+    const [metadata, setMetadata] = useState()
     const getInput = useCallback(async () => {
         try {
             const instructionsFile = await fetch(mdFile);
             const text = await instructionsFile.text();
             const {meta, contents} = splitMetaAndPages(text)
-            setPages(formatPage(contents))
-            setMetadata(formatMeta(meta))
+            const formattedPages = formatPage(contents)
+            const formattedMeta = formatMeta(meta)
+            setPages(formattedPages)
+            setMetadata(formattedMeta)
+            dispatch(metaStored(formattedMeta))
+            dispatch(pagesStored({pages: formattedPages}))
         } catch (err) {
             console.error('Problem reading markdown file', err);
         }
-    },[])
+    }, [])
 
     useEffect(() => {
         getInput().then()
@@ -61,4 +67,4 @@ function PageConstructor() {
     return {pages, metadata}
 }
 
-export default PageConstructor;
+export default UsePageConstructor;

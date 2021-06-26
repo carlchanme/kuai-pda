@@ -1,7 +1,7 @@
 import React from 'react';
 import {Table} from "react-bootstrap";
 
-function OptionsTable(props) {
+const OptionsTable = () => {
     return (
         <Table striped bordered hover>
             <thead>
@@ -34,5 +34,4 @@ function OptionsTable(props) {
         </Table>
     );
 }
-
 export default OptionsTable;

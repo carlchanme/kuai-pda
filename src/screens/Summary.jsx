@@ -1,7 +1,13 @@
 import React from 'react'
 import {Table} from "react-bootstrap";
+import {useSelector} from "react-redux";
+import {getIPDAS} from "../store/ipdas";
+import {getMeta} from "../store/meta";
 
-const Summary = (meta, standards) => () => {
+const Summary = () => {
+    const standards = {qualifyingCriteria: {}, certificationCriteria: {}, qualityCriteria: {}}
+    const ipdas = useSelector(getIPDAS)
+    const meta = useSelector(getMeta)
 
     const handleClick = (e) => {
         const hiddenElement = e.currentTarget.nextSibling;
@@ -13,7 +19,7 @@ const Summary = (meta, standards) => () => {
     const qualifyingList = [
         `${checked(qualifyingCriteria.describeCondition)} The decision aid describes the condition (health or other) related to the decision.`,
         `${checked(qualifyingCriteria.describeDecision)} The patient decision aid explicitly states the decision that needs to be considered.`,
-        `${checked(qualifyingCriteria.describeOptions)} The patient decision aid describes the options available for the index decision.`,
+        `${checked(ipdas.describeOptions)} The patient decision aid describes the options available for the index decision.`,
         `${checked(qualifyingCriteria.describeOptionsPositive)} The patient decision aid describes the positive features (benefits or advantages) of each option.`,
         `${checked(qualifyingCriteria.describeOptionsNegative)} The patient decision aid describes the negative features (harms, side effects, or disadvantages) of each option.`,
         `${checked(qualifyingCriteria.consequenceOptions)} The patient decision aid describes what it is like to experience the consequences of the options .`,
@@ -29,53 +35,53 @@ const Summary = (meta, standards) => () => {
                 <thead>
                 <tr>
                     <th>Title</th>
-                    <th>{meta.title}</th>
+                    <th>{meta?.title}</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>Audience</td>
-                    <td>{meta.audience}</td>
+                    <td>{meta?.audience}</td>
                 </tr>
                 <tr>
                     <td>Options included</td>
-                    <td>{meta.optionsIncluded}</td>
+                    <td>{meta?.optionsIncluded}</td>
                 </tr>
                 <tr>
                     <td>Last update or review date</td>
-                    <td>{meta.updatedDate}</td>
+                    <td>{meta?.updatedDate}</td>
                 </tr>
                 <tr>
                     <td>Created date</td>
-                    <td>{meta.createdDate}</td>
+                    <td>{meta?.createdDate}</td>
                 </tr>
                 <tr>
                     <td>Format</td>
-                    <td>{meta.format}</td>
+                    <td>{meta?.format}</td>
                 </tr>
                 <tr>
                     <td>Author</td>
-                    <td>{meta.author}</td>
+                    <td>{meta?.author}</td>
                 </tr>
                 <tr>
                     <td>Developer</td>
-                    <td>{meta.developer}</td>
+                    <td>{meta?.developer}</td>
                 </tr>
                 <tr>
                     <td>Where was it developed?</td>
-                    <td>{meta.whereWasItDeveloped}</td>
+                    <td>{meta?.whereWasItDeveloped}</td>
                 </tr>
                 <tr>
                     <td>Health Condition</td>
-                    <td>{meta.healthCondition}</td>
+                    <td>{meta?.healthCondition}</td>
                 </tr>
                 <tr>
                     <td>Type of decision aid</td>
-                    <td>{meta.typeOfDecisionAid}</td>
+                    <td>{meta?.typeOfDecisionAid}</td>
                 </tr>
                 <tr>
                     <td>Language</td>
-                    <td>{meta.language}</td>
+                    <td>{meta?.language}</td>
                 </tr>
                 </tbody>
             </Table>

@@ -7,7 +7,7 @@ import 'katex/dist/katex.min.css'
 import rehypeKatex from "rehype-katex";
 import {components} from "../components/markdownComponents";
 
-const Panel = (body) => () => {
+const Panel = ({body}) => {
     return (
         <ReactMarkdown
             remarkPlugins={[[remarkGfm, {singleTilde: false}], remarkMath]}

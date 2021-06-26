@@ -98,7 +98,7 @@ You can add tables or list to you PDA
 ~~~json
 {
   "type": "optionsTable",
-  "title": "options",
+  "title": "Compare your options",
   "heading": [
     "Questions",
     "Take Insulin",
