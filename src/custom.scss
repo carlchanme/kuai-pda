@@ -3,6 +3,9 @@ $theme-colors: (
         "primary": #336699,
         "danger": #ff4136
 );
+h1 {
+  color: #336699;
+}
 
 // Import Bootstrap and its default variables
 @import 'node_modules/bootstrap/scss/bootstrap';

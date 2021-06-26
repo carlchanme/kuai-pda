@@ -1,17 +1,4 @@
 /* CSS Document */
-.player-wrapper {
-  width: auto;
-  height: auto;
-}
-.react-player {
-  padding-top: 56.25%;
-  position: relative;
-}
-
-.react-player > div {
-  position: absolute;
-}
-
 .center_back{
   background-color:#FFF;
   opacity:.9;
@@ -20,30 +7,6 @@
 #tools{
   top: 0;
   text-align:right;
-}
-.supporting_text_control{
-  display:inline-block;
-  padding:2px 2px 2px 10px;
-  border-radius:4px;
-  border:1px solid #6F6F6F;
-  background-color:#6F6F6F;
-  color:#fff;
-}
-.text_control{
-  display:inline-block;
-  padding:2px 2px 2px 10px;
-  border-radius:4px;
-  border:1px solid #6F6F6F;
-  background-color:#6F6F6F;
-  color:#fff;
-}
-.narration_control{
-  display:inline-block;
-  padding:2px 2px 2px 10px;
-  border-radius:4px;
-  border:1px solid #FFB900;
-  background-color:#FFB900;
-  color:#1F1F1F;
 }
 header{
   padding-top:5px;
@@ -142,145 +105,20 @@ footer a:hover{
   top:0;
   margin:70px auto 0 auto;
 }
-/* START Quiz styling */
-.btn{
-  white-space: normal;
+/* START Video Player styling */
+.player-wrapper {
+  width: auto;
+  height: auto;
 }
-#statements{
-  text-align:center;
-  padding:0;
-  margin:0;
+.react-player {
+  padding-top: 56.25%;
+  position: relative;
 }
-#statements li{
-  margin-bottom:10px;
-  list-style:none;
+.react-player > div {
+  position: absolute;
 }
-#statements li a{
-  width:80%;
-}
-.results{
-  font-size:160%;
-}
-#video_holder{
-  text-align:center;
+/* END Video Player Styling */
 
-}
-#video_holder iframe{
-  margin: 0 auto;
-}
-
-.opacity50{
-  opacity:0.5;
-}
-
-.btn-hs{color:#ffffff;background-color:#0194A0;border-color:#00848F;}.btn-hs:hover,.btn-hs:focus,.btn-hs:active,.btn-hs.active,.open .dropdown-toggle.btn-hs{color:#ffffff;background-color:#00767F;border-color:#00676F;}
-.btn-hs:active,.btn-hs.active,.open .dropdown-toggle.btn-hs{background-image:none;}
-.btn-hs.disabled,.btn-hs[disabled],fieldset[disabled] .btn-hs,.btn-hs.disabled:hover,.btn-hs[disabled]:hover,fieldset[disabled] .btn-hs:hover,.btn-hs.disabled:focus,.btn-hs[disabled]:focus,fieldset[disabled] .btn-hs:focus,.btn-hs.disabled:active,.btn-hs[disabled]:active,fieldset[disabled] .btn-hs:active,.btn-hs.disabled.active,.btn-hs[disabled].active,fieldset[disabled] .btn-hs.active{background-color:#0194A0;border-color:#00848F;}
-/**/
-/* END btn-hs styling */
-
-/* START post-it styling */
-
-.post-it, .post-it_neg{
-  margin:20px;
-}
-
-
-.but_panel{
-  padding:0;
-}
-.but_panel p{
-  padding:0;
-  margin:0;
-}
-.but_panel a{
-  text-align:center;
-  padding:20px 10px 0px  10px;
-  /*border:2px solid #fff;;*/
-  display:block;
-  color:#fff;
-  font-size:120%;
-}
-.but_panel a:hover{
-  background-color:#fff;
-  color:#333;
-  text-decoration:underline;
-  /*font-weight:bold;*/
-}
-.bg_yellow{
-  background-color:#C2B22A;
-}
-.bg_turquoise{
-  background-color:#009FA8;
-}
-.bg_orange{
-  background-color:#F0862D;
-}
-.bg_purple{
-  background-color:#663E90;
-}
-.bg_pink{
-  background-color:#E7317F;
-}
-.bg_green{
-  background-color:#00A663;
-}
-.bg_blue{
-  background-color:#00A7C8;
-}
-/* END post-it styling*/
-
-
-/* START hotspot resource styling */
-
-*{-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
-#test-frame{
-  position:relative;
-}
-#canvas, #video_holder{
-  /*background:url(../images/loader.gif) no-repeat 50% 50% #fff;*/
-}
-#video_holder{text-align:center;}
-#canvas:hover{
-  cursor:pointer;
-}
-.response{
-  display:none;
-  position:absolute;
-  left:20px;
-  top:20px;
-  width:600px;
-  /*height:440px;*/
-  background-color:#F7F7F9;
-  padding:20px;
-  border:1px solid #F7F7F9;
-  border-radius:10px;
-
-
-}
-#play_sound{
-  position:absolute;
-  left:10px;
-  top:10px;
-}
-.close_message{
-  float:right;
-}
-.panel-primary{
-  border-color:#58464B;
-}
-.panel-primary .panel-heading{
-  background-color:#58464B;
-  border-color:#58464B;
-}
-
-.hide{
-  display: none;
-}
-
-/* END STRESS RLO CODE*/
-
-/* END Quiz styling */
 @media(max-width:991px){
   #tools span.tool_text{
     display:none;
@@ -307,10 +145,6 @@ footer a:hover{
     font-size:180%;
     font-weight:bold;
     text-align:center;
-    /*background-color:#333;
-    color:#fff;
-    font-size:110%;
-    position:fixed;right:0;left:0;top:0;z-index:1020;*/
   }
   #small_screen_menu{
     list-style:none;

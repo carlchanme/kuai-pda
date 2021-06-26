@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faArrowCircleLeft, faArrowCircleRight, faBars, faTimes} from '@fortawesome/free-solid-svg-icons'
+import {FaArrowCircleRight, FaArrowCircleLeft, FaBars, FaTimes} from "react-icons/fa"
 import {Button, Collapse, Dropdown, ListGroup, Nav} from "react-bootstrap";
 import {useHistory} from "react-router-dom";
 
@@ -28,17 +27,17 @@ const Navbar = ({previous, next, pages}) => {
                     </Dropdown.Menu>
                 </Dropdown>
                 <Button variant="primary mr-2" disabled={!previous} onClick={() => handleNavigation(previous)}>
-                    <FontAwesomeIcon icon={faArrowCircleLeft}/> Previous
+                    <FaArrowCircleLeft /> Previous
                 </Button>
                 <Button variant="primary mr-2" disabled={!next} onClick={() => handleNavigation(next)}>
-                    Next <FontAwesomeIcon icon={faArrowCircleRight}/>
+                    Next <FaArrowCircleRight />
                 </Button>
             </Nav>
             <div className="d-block d-sm-none" id="small_screen_menu_container">
                 <p>
                     <Button className="btn-block" onClick={() => setShowList(!showList)}>
-                        Toggle Navigation &nbsp;&nbsp;{showList ? <FontAwesomeIcon icon={faTimes}/> :
-                        <FontAwesomeIcon icon={faBars}/>}
+                        Toggle Navigation &nbsp;&nbsp;{showList ? <FaTimes /> :
+                        <FaBars />}
                     </Button>
                 </p>
                 <Collapse in={showList}>

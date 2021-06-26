@@ -1,28 +1,10 @@
----
-
-# metadata
-
-title:- Patient Decision Aid Express 
-health-condition:- What health condition is this PDA target towards?
-learning-objective:- Objectives of creating this patient decision aid. 
-author:- Content Author's name 
-developer:- Developers name 
-type-of-decision-aid:- How will this PDA help patient 
-updated-date:- 04 Dec 2020 
-created-date:- 04 Dec 2020 
-audience:- Who are the target audience for this PDA. 
-options-included:- State all the options that are available.
-language:- Language used to create the PDA
-
-format:- Web where-was-it-developed:- Company or organization that developed it how-is-this-pda-funded:- Self sponsored
-footer:- Copyright and legal notes goes here.
 
 ---
 
 # Welcome to PDA-x
 
-Patient Decision Aid Express(PDA-x) is simpler way to create you Patient Decision aid with little knowledge of PDA and
-programming
+Patient Decision Aid Express(PDA-x) is simpler way to create you Patient Decision aid with little knowledge
+of PDA and programming
 
 ![PDA sample](https://www.heartrhythmalliance.org/files/images/afa/for-patients/atrial-fibrillation/decision-making-aid.jpg)
 
@@ -81,7 +63,6 @@ You can add tables or list to you PDA
 <div class="col-sm">
 
 ### Lists
-
 * [ ] todo1
 * [ ] todo2
 * [ ] todo3
@@ -90,29 +71,6 @@ You can add tables or list to you PDA
 * [x] done
 
 </div>
-
----
-
-# Options
-
-~~~json
-{
-  "type": "optionsTable",
-  "title": "options",
-  "heading": [
-    "Questions",
-    "Take Insulin",
-    "Don't take Insulin"
-  ],
-  "body": [
-    [
-      "What is usually involved?",
-      "You give yourself insulin 1 to 4 times a day. Most people do this by giving themselves an injection, or shot.",
-      "You check your blood sugar to make sure that your levels are in your target range."
-    ]
-  ]
-}
-~~~
 
 ---
 
@@ -192,16 +150,19 @@ LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
 
 Inline $\sqrt{3x-1}+(1+x)^2$
 
-Block $$ \begin{array}{c}
+Block
+$$
+\begin{array}{c}
 
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & =
-\frac{4\pi}{c}\vec{\mathbf{j}} \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
+= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
 
 \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
 
 \nabla \cdot \vec{\mathbf{B}} & = 0
 
-\end{array} $$
+\end{array}
+$$
 
 <br>
 
@@ -218,5 +179,5 @@ Block $$ \begin{array}{c}
 
 # Summary page
 
-[Documentations](https://myum.um.edu.my) / [GitHub Repo](https://myum.um.edu.my)
 
+[Documentations](https://myum.um.edu.my) / [GitHub Repo](https://myum.um.edu.my)

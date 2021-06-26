@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import ReactCardFlip from "react-card-flip";
-import Table from "../components/Table";
+import Table from "./table";
 
 function FlipCardImage({frontImage, items, title}) {
     const [flip, setFlip] = useState(false)

@@ -1,5 +1,0 @@
-export {default as Heading} from './heading'
-export {default as Heading2} from './heading2'
-export {default as Heading3} from './heading3'
-export {default as Heading4} from './heading4'
-export {default as Body} from './body'

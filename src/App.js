@@ -2,10 +2,10 @@ import {Fragment, useRef, useState} from "react";
 import './App.css';
 import {Redirect, Route, Switch} from 'react-router-dom';
 
-import Header from "./components/header";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
-import Page from "./components/page";
+import Header from "./components/pageTemplate/header";
+import Navbar from "./components/pageTemplate/navbar";
+import Footer from "./components/pageTemplate/footer";
+import Page from "./components/pageTemplate/page";
 
 import {Container} from "react-bootstrap";
 import NotFound from "./screens/notFound";

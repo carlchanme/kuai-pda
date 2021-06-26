@@ -1,8 +1,7 @@
 import React from "react";
 import {Button, Nav, Navbar} from "react-bootstrap";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowCircleLeft, faArrowCircleRight} from "@fortawesome/free-solid-svg-icons";
 import {useHistory} from "react-router-dom";
+import {FaArrowCircleRight, FaArrowCircleLeft} from "react-icons/fa"
 
 const Page = ({previous, next, children, ...props}) => {
     const history = useHistory();
@@ -16,11 +15,11 @@ const Page = ({previous, next, children, ...props}) => {
                 {children}
                 <Navbar className="justify-content-between">
                     {previous && <Button variant="primary my-2" onClick={() => handleNavigation(previous)}>
-                        <FontAwesomeIcon icon={faArrowCircleLeft}/> Previous
+                        <FaArrowCircleLeft /> Previous
                     </Button>}
                     <Nav></Nav>
                     {next && <Button variant="primary" onClick={() => handleNavigation(next)}>
-                        Next <FontAwesomeIcon icon={faArrowCircleRight}/>
+                        Next <FaArrowCircleRight />
                     </Button>}
                 </Navbar>
             </article>
