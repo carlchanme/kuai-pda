@@ -95,6 +95,8 @@ You can add tables or list to you PDA
 
 # Options
 
+# Options
+benefits
 ~~~json
 {
   "type": "optionsTable",
@@ -107,6 +109,18 @@ You can add tables or list to you PDA
   "body": [
     [
       "What is usually involved?",
+      "You give yourself insulin 1 to 4 times a day. Most people do this by giving themselves an injection, or shot.",
+      "You check your blood sugar to make sure that your levels are in your target range."
+    ],    [
+      "benefits?",
+      "You give yourself insulin 1 to 4 times a day. Most people do this by giving themselves an injection, or shot.",
+      "You check your blood sugar to make sure that your levels are in your target range."
+    ],    [
+      "side effects?",
+      "You give yourself insulin 1 to 4 times a day. Most people do this by giving themselves an injection, or shot.",
+      "You check your blood sugar to make sure that your levels are in your target range."
+    ],    [
+      "risk?",
       "You give yourself insulin 1 to 4 times a day. Most people do this by giving themselves an injection, or shot.",
       "You check your blood sugar to make sure that your levels are in your target range."
     ]

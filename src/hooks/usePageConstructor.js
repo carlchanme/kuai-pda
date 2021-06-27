@@ -29,13 +29,14 @@ function UsePageConstructor() {
     }, [getInput]);
 
     const splitMetaAndPages = (text) => {
-        const splitPage = text.split("---\n\n")
+        const splitPage = text.split("---" + text.includes("\r")?"\r\n\r\n":"\n\n")
         splitPage.shift()
         const contents = splitPage.splice(1)
         return {meta: splitPage[0], contents: contents}
     }
 
     const formatPage = (contents) => {
+        if(!contents) return
         const summary = {
             title: "Decision Aid Summary",
             isSummary: true,
@@ -54,6 +55,7 @@ function UsePageConstructor() {
     }
 
     const formatMeta = (meta) => {
+        if(!meta) return
         let formattedMeta = {}
         meta.split("\n").forEach((d) => {
             const keyValue = d.split(':-')
