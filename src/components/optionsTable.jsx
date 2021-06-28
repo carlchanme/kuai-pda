@@ -1,35 +1,20 @@
 import React from 'react';
 import {Table} from "react-bootstrap";
 
-const OptionsTable = () => {
+const OptionsTable = ({json}) => {
     return (
-        <Table striped bordered hover>
+        <Table striped bordered size="sm">
             <thead>
             <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                {json?.heading.map((title, index) => <th key={index}>{title}</th>)}
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td colSpan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            {json?.body.map((row) => {
+                return <tr>
+                    {row?.map((label, index) => <td key={index}><div>{label}</div></td>)}
+                </tr>
+            })}
             </tbody>
         </Table>
     );

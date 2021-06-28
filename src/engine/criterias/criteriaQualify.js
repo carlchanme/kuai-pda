@@ -19,7 +19,6 @@ const CriteriaQuality = (meta) => {
         // 2.	The patient decision aid explicitly states the decision that needs to be considered (index decision). (options / decision)
         return false
     }
-
     const describeOptions = () => {
         // 3.	The patient decision aid describes the options available for the index decision
         return false
@@ -46,6 +45,7 @@ const CriteriaQuality = (meta) => {
         // (e.g., physical, psychological, social).
         return false
     }
+
     return {
         describeCondition,
         describeDecision,

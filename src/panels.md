@@ -2,19 +2,22 @@
 
 # metadata
 
-title:- Patient Decision Aid Express 
+title:- Patient Decision Aid Express
 health-condition:- What health condition is this PDA target towards?
-learning-objective:- Objectives of creating this patient decision aid. 
-author:- Content Author's name 
-developer:- Developers name 
-type-of-decision-aid:- How will this PDA help patient 
-updated-date:- 04 Dec 2020 
-created-date:- 04 Dec 2020 
-audience:- Who are the target audience for this PDA. 
+condition-description:- describe health condition here
+learning-objective:- Objectives of creating this patient decision aid.
+author:- Content Author's name
+developer:- Developers name
+type-of-decision-aid:- How will this PDA help patient
+updated-date:- 04 Dec 2020
+created-date:- 04 Dec 2020
+audience:- Who are the target audience for this PDA.
 options-included:- State all the options that are available.
 language:- Language used to create the PDA
 
-format:- Web where-was-it-developed:- Company or organization that developed it how-is-this-pda-funded:- Self sponsored
+format:- Web
+where-was-it-developed:- Company or organization that developed it
+how-is-this-pda-funded:- Self sponsored
 footer:- Copyright and legal notes goes here.
 
 ---
@@ -72,7 +75,7 @@ You can add tables or list to you PDA
 
 | Header |  Header   |
 | --- | --- |
-| asldkfjasf| label |
+| title| label |
 | title| label |
 | title| label |
 | title| label |
@@ -102,7 +105,7 @@ benefits
   "type": "optionsTable",
   "title": "Compare your options",
   "heading": [
-    "Questions",
+    "",
     "Take Insulin",
     "Don't take Insulin"
   ],
@@ -138,8 +141,11 @@ Add videos or images to your PDA
 <div class="row">
 <div class="col-sm">
 
-~~~player 
-./videos/panel1.mp4
+~~~json
+{
+  "type": "player",
+  "path": "./videos/panel1.mp4"
+}
 ~~~
 
 </div>
@@ -153,29 +159,6 @@ Add videos or images to your PDA
 ---
 
 # Code
-
-Use code snippets and get the highlighting directly!
-
-~~~js
-interface
-User
-{
-    id: number
-    firstName: string
-    lastName: string
-    role: string
-}
-
-function updateUser(id: number, update: User) {
-    const user = getUser(id)
-    const newUser = {...user, ...update}
-    saveUser(id, newUser)
-}
-~~~
-
----
-
-# Code 2
 
 Use code snippets and get the highlighting directly!
 
@@ -226,11 +209,3 @@ Block $$ \begin{array}{c}
 # Learn More
 
 [Documentations](https://myum.um.edu.my) / [GitHub Repo](https://myum.um.edu.my)
-
-
----
-
-# Summary page
-
-[Documentations](https://myum.um.edu.my) / [GitHub Repo](https://myum.um.edu.my)
-

@@ -23,7 +23,8 @@ export const components = {
         const matchOptionTable = /language-json/.exec(className || '')
         if (matchOptionTable) {
             const object = JSON.parse(children)
-            if (object.type === "optionsTable") return <OptionsTable path={children}/>
+            if (object.type === "optionsTable") return <OptionsTable json={object}/>
+            if (object.type === "player") return <Player path={object.path}/>
         }
         const match = /language-(\w+)/.exec(className || '')
         if(match) return <SyntaxHighlighter
