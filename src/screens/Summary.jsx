@@ -14,6 +14,14 @@ const Summary = () => {
     }
     const checked = (isDone) => isDone ? "✅" : "❎"
 
+    const countTrue = (criteria) => {
+        let count = 0;
+        for (const [key, value] of Object.entries(criteria)) {
+            if(value) count += 1
+        }
+        return count
+    }
+
     const {
         describeCondition: q1,
         describeDecision: q2,
@@ -188,7 +196,7 @@ const Summary = () => {
                 <tbody>
                 <tr onClick={handleClick}>
                     <td>Qualifying Criteria</td>
-                    <td>0 out of 6</td>
+                    <td>{countTrue(qualifyingCriteria)} out of 6</td>
                 </tr>
                 <tr className="collapse">
                     <td colSpan="2">
@@ -197,7 +205,7 @@ const Summary = () => {
                 </tr>
                 <tr onClick={handleClick}>
                     <td>Certification Criteria</td>
-                    <td>0 out of 10</td>
+                    <td>{countTrue(certificationCriteria)} out of 10</td>
                 </tr>
                 <tr className="collapse">
                     <td colSpan="2">
@@ -206,7 +214,7 @@ const Summary = () => {
                 </tr>
                 <tr onClick={handleClick}>
                     <td>Quality Criteria</td>
-                    <td>0 out of 28</td>
+                    <td>{countTrue(qualityCriteria)} out of 28</td>
                 </tr>
                 <tr className="collapse">
                     <td colSpan="2">

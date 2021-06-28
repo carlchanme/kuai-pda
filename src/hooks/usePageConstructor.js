@@ -29,7 +29,7 @@ function UsePageConstructor() {
     }, [getInput]);
 
     const splitMetaAndPages = (text) => {
-        const splitPage = text.split("---" + text.includes("\r")?"\r\n\r\n":"\n\n")
+        const splitPage = text.split("---\n\n")
         splitPage.shift()
         const contents = splitPage.splice(1)
         return {meta: splitPage[0], contents: contents}

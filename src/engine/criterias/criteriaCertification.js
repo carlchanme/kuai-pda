@@ -11,13 +11,14 @@ const criteriaCertification = (meta) => {
     }
 
     const showPublicationDate = () => {
+        console.log({path: "showPublicationDate", meta})
         // 3.	The patient decision aid (or associated documentation) provides a production or publication date.
-        return false
+        return !!meta.updatedDate
     }
 
     const showUpdatePolicy = () => {
         // 4.	The patient decision aid (or associated documentation) provides information about the update policy.
-        return false
+        return !!meta.updatedDate
     }
 
     const showLevelOfUncertainty = () => {

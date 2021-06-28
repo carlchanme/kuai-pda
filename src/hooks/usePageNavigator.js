@@ -9,7 +9,6 @@ function UsePageNavigator({pages}) {
     const [next, setNext] = useState(null)
 
     useEffect(() => {
-        console.log({path: "useEffect", index, pages})
         const percentage = index / (pages?.length - 1) * 100
         setProgress(percentage)
 

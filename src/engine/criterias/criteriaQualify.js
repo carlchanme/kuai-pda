@@ -9,13 +9,11 @@ const CriteriaQuality = (meta) => {
 
         const regex = /option[s]{0,1}/
         return pages?.some((page) => {
-            console.log({page})
             // for .some, when true is returned then it will break;
             return criteriaValidator(page, regex)
         })
     }
     const describeDecision = () => {
-        console.log({path: 'describe decision', meta})
         // 2.	The patient decision aid explicitly states the decision that needs to be considered (index decision). (options / decision)
         return false
     }
